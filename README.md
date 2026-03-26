@@ -24,11 +24,11 @@ Dự án được xây dựng theo mô hình **N-Tier (Đa tầng)** giúp tách
 ## 📊 Luồng Dữ Liệu (Data Flow)
 
 ```mermaid
-graph TD
+flowchart TD
     User((Người dùng)) -->|Tương tác| UI[Giao diện WinForms]
     UI -->|Gọi hàm| Service[Services Layer]
     Service -->|Yêu cầu dữ liệu| Model[Models & MongoHelper]
-    Model <=>|Kết nối Driver| DB[(MongoDB Atlas)]
+    Model <-->|Kết nối Driver| DB[(MongoDB Atlas)]
     Service -->|Kết quả| UI
     UI -->|Phản hồi| User
 ```
@@ -52,7 +52,7 @@ graph TD
 
 1.  **Cài đặt**: 
     ```bash
-    git clone [đường-dẫn-repo-của-bạn]
+    git clone https://github.com/vinktrongle04/Environmental-Monitoring.git
     cd FinalSE
     ```
 2.  **Cấu hình**: Kiểm tra chuỗi kết nối MongoDB trong `MongoHelper.cs`.
