@@ -1,13 +1,10 @@
-# CÔNG NGHỆ PHẦN MỀM - PHẦN MỀM QUẢN LÝ HỢP ĐỒNG
-
-[![Build Status](https://img.shields.io/badge/build-passing-brightgreen)](https://github.com/jakerhau/SoftwareEngineer/actions)
-[![License](https://img.shields.io/github/license/jakerhau/SoftwareEngineer)](LICENSE)
+# PHẦN MỀM QUẢN LÝ HỢP ĐỒNG
 
 > Hệ thống quản lý người dùng, khách hàng và hợp đồng chuyên nghiệp, phục vụ quy trình xử lý dữ liệu và báo cáo theo thời gian thực.
 
 ---
 
-## 🏗️ Kiến Trúc Hệ Thống (System Architecture)
+##  Kiến Trúc Hệ Thống (System Architecture)
 
 Dự án được xây dựng theo mô hình **N-Tier (Đa tầng)** giúp tách biệt rõ ràng giữa giao diện, logic nghiệp vụ và dữ liệu:
 
@@ -21,7 +18,7 @@ Dự án được xây dựng theo mô hình **N-Tier (Đa tầng)** giúp tách
     *   Lớp `MongoHelper` quản lý kết nối và truy xuất Collection thông qua MongoDB Atlas.
 
 
-## 📊 Luồng Dữ Liệu (Data Flow)
+## Luồng Dữ Liệu (Data Flow)
 
 ```mermaid
 flowchart TD
@@ -35,20 +32,20 @@ flowchart TD
 
 ---
 
-## 🛠️ Tính Năng Chính (Features)
+## Tính Năng Chính (Features)
 - **Quản lý Người dùng**: Bảo mật với mã hóa AES.
 - **Quản lý Hợp đồng**: Tự động hóa quá trình điền thông tin và theo dõi deadline.
 - **Quản lý Khách hàng**: Lưu trữ và truy xuất nhanh chóng.
 - **Thông báo Email**: Hỗ trợ khôi phục mật khẩu và thông báo quan trọng.
 
-## 💻 Yêu Cầu Hệ Thống (Requirements)
+## Yêu Cầu Hệ Thống (Requirements)
 - **.NET SDK**: [.NET 6 hoặc cao hơn](https://dotnet.microsoft.com/download/dotnet)
 - **Cơ sở dữ liệu**: MongoDB (Local hoặc Atlas)
 - **Thư viện chính**: `MongoDB.Driver`, `Newtonsoft.Json`.
 
 ---
 
-## 🚀 Bắt Đầu (Getting Started)
+## Bắt Đầu (Getting Started)
 
 1.  **Cài đặt**: 
     ```bash
