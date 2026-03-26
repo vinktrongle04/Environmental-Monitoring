@@ -1,53 +1,59 @@
-# CÔNG NGHỆ PHẦN MỀM
+# CÔNG NGHỆ PHẦN MỀM - PHẦN MỀM QUẢN LÝ HỢP ĐỒNG
 
 [![Build Status](https://img.shields.io/badge/build-passing-brightgreen)](https://github.com/jakerhau/SoftwareEngineer/actions)
 [![License](https://img.shields.io/github/license/jakerhau/SoftwareEngineer)](LICENSE)
-[![Contributors](https://img.shields.io/github/contributors/yourusername/projectname)](https://github.com/jakerhau/SoftwareEngineer/graphs/contributors)
 
-> A brief overview of your C# project. Explain the purpose, key features, and any relevant context.
-
-## Table of Contents
-- [Features](#features)
-- [Requirements](#requirements)
-- [Getting Started](#getting-started)
-  - [Installation](#installation)
-  - [Configuration](#configuration)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
-- [Contact](#contact)
+> Hệ thống quản lý người dùng, khách hàng và hợp đồng chuyên nghiệp, phục vụ quy trình xử lý dữ liệu và báo cáo theo thời gian thực.
 
 ---
 
-## Features
-- **User Management**: 
-   - Add, update, and delete user information securely with MongoDB integration.
-   - Role-based access control to manage permissions for different types of users.
+## 🏗️ Kiến Trúc Hệ Thống (System Architecture)
 
-- **Contract Management**:
-   - Easily manage contract creation, updates, and status tracking within the system.
-   - Auto-population of contract details based on user and customer data for seamless management.
+Dự án được xây dựng theo mô hình **N-Tier (Đa tầng)** giúp tách biệt rõ ràng giữa giao diện, logic nghiệp vụ và dữ liệu:
 
-- **Customer Information Handling**:
-   - Store and retrieve customer details, including name, contact info, and associated contracts.
-   - Automatically link contracts to customers for easy reference and data consistency.
+1.  **Presentation Layer (Giao diện)**: 
+    *   Sử dụng **Windows Forms (WinForms)** với .NET 6.
+    *   Giao diện hiện đại với các thành phần tùy chỉnh (Custom Controls) từ thư viện `RJControls`.
+2.  **Business Logic & Service Layer (Nghiệp vụ)**: 
+    *   Quản lý các logic xử lý dữ liệu, kiểm tra quyền hạn và ghi log hoạt động thông qua các `Services`.
+3.  **Data Access Layer & Models (Dữ liệu)**:
+    *   Sử dụng **MongoDB (NoSQL)** làm cơ sở dữ liệu chính.
+    *   Lớp `MongoHelper` quản lý kết nối và truy xuất Collection thông qua MongoDB Atlas.
 
-- **Status Tracking**:
-   - Real-time tracking of contract statuses (e.g., "Finished", "Unfinished", "Waiting").
-   - Displays contract deadlines and progress to keep users informed of important dates and deliverables.
 
-## Requirements
-- **.NET SDK**: [.NET 6 or higher](https://dotnet.microsoft.com/download/dotnet)
-- **MongoDB** (if applicable): [MongoDB](https://www.mongodb.com/)
-- Any other dependencies or tools required to run the project
+## 📊 Luồng Dữ Liệu (Data Flow)
 
-## Getting Started
+```mermaid
+graph TD
+    User((Người dùng)) -->|Tương tác| UI[Giao diện WinForms]
+    UI -->|Gọi hàm| Service[Services Layer]
+    Service -->|Yêu cầu dữ liệu| Model[Models & MongoHelper]
+    Model <=>|Kết nối Driver| DB[(MongoDB Atlas)]
+    Service -->|Kết quả| UI
+    UI -->|Phản hồi| User
+```
 
-Follow these steps to set up and run the project on your local machine.
+---
 
-### Installation
+## 🛠️ Tính Năng Chính (Features)
+- **Quản lý Người dùng**: Bảo mật với mã hóa AES.
+- **Quản lý Hợp đồng**: Tự động hóa quá trình điền thông tin và theo dõi deadline.
+- **Quản lý Khách hàng**: Lưu trữ và truy xuất nhanh chóng.
+- **Thông báo Email**: Hỗ trợ khôi phục mật khẩu và thông báo quan trọng.
 
-1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/jakerhau/SoftwareEngineer
-   cd SoftwareEngineer
+## 💻 Yêu Cầu Hệ Thống (Requirements)
+- **.NET SDK**: [.NET 6 hoặc cao hơn](https://dotnet.microsoft.com/download/dotnet)
+- **Cơ sở dữ liệu**: MongoDB (Local hoặc Atlas)
+- **Thư viện chính**: `MongoDB.Driver`, `Newtonsoft.Json`.
+
+---
+
+## 🚀 Bắt Đầu (Getting Started)
+
+1.  **Cài đặt**: 
+    ```bash
+    git clone [đường-dẫn-repo-của-bạn]
+    cd FinalSE
+    ```
+2.  **Cấu hình**: Kiểm tra chuỗi kết nối MongoDB trong `MongoHelper.cs`.
+3.  **Chạy ứng dụng**: Mở file `.sln` bằng Visual Studio và nhấn F5.
