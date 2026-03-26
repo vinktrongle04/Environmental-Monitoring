@@ -48,9 +48,8 @@ flowchart TD
 ## Bắt Đầu (Getting Started)
 
 1.  **Cài đặt**: 
-    ```bash
+    ```
     git clone https://github.com/vinktrongle04/Environmental-Monitoring.git
-    cd FinalSE
     ```
 2.  **Cấu hình**: Kiểm tra chuỗi kết nối MongoDB trong `MongoHelper.cs`.
 3.  **Chạy ứng dụng**: Mở file `.sln` bằng Visual Studio và nhấn F5.
